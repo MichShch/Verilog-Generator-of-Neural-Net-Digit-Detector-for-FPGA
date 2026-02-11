@@ -1,0 +1,81 @@
+IP Upgrade report for cam_proj
+Wed Feb 11 14:37:21 2026
+Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. IP Upgrade Summary
+  3. Successfully Upgraded IP Components
+  4. IP Upgrade Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------+
+; IP Upgrade Summary                                                         ;
++------------------------------+---------------------------------------------+
+; IP Components Upgrade Status ; Passed - Wed Feb 11 14:37:21 2026           ;
+; Quartus Prime Version        ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
+; Revision Name                ; cam_proj                                    ;
+; Top-level Entity Name        ; cam_proj_top                                ;
+; Family                       ; Cyclone IV E                                ;
++------------------------------+---------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Successfully Upgraded IP Components                                                                                                             ;
++--------------+----------------+---------+-------------------------------+-----------------------------+-------------------------------+---------+
+; Entity Name  ; Component Name ; Version ; Original Source File          ; Generation File Path        ; New Source File               ; Message ;
++--------------+----------------+---------+-------------------------------+-----------------------------+-------------------------------+---------+
+; pll          ; ALTPLL         ; 18.0    ; pll.qip                       ; pll.v                       ; pll.qip                       ;         ;
+; fifo_1024x16 ; FIFO           ; 18.0    ; ../code/synt/fifo_1024x16.qip ; ../code/synt/fifo_1024x16.v ; ../code/synt/fifo_1024x16.qip ;         ;
+; pll_for_disp ; ALTPLL         ; 18.0    ; pll_for_disp.qip              ; pll_for_disp.v              ; pll_for_disp.qip              ;         ;
+; fifo_big     ; FIFO           ; 18.0    ; fifo_big.qip                  ; fifo_big.v                  ; fifo_big.qip                  ;         ;
++--------------+----------------+---------+-------------------------------+-----------------------------+-------------------------------+---------+
+
+
++---------------------+
+; IP Upgrade Messages ;
++---------------------+
+Info (11902): Backing up file "pll.v" to "pll.BAK.v"
+Info (11837): Started upgrading IP component ALTPLL with file "pll.v"
+Info (11902): Backing up file "../code/synt/fifo_1024x16.v" to "../code/synt/fifo_1024x16.BAK.v"
+Info (11837): Started upgrading IP component FIFO with file "../code/synt/fifo_1024x16.v"
+Info (11902): Backing up file "pll_for_disp.v" to "pll_for_disp.BAK.v"
+Info (11837): Started upgrading IP component ALTPLL with file "pll_for_disp.v"
+Info (11902): Backing up file "fifo_big.v" to "fifo_big.BAK.v"
+Info (11837): Started upgrading IP component FIFO with file "fifo_big.v"
+Info (11131): Completed upgrading IP component ALTPLL with file "pll.v"
+Info (11131): Completed upgrading IP component FIFO with file "../code/synt/fifo_1024x16.v"
+Info (11131): Completed upgrading IP component ALTPLL with file "pll_for_disp.v"
+Info (11131): Completed upgrading IP component FIFO with file "fifo_big.v"
+Info (23030): Evaluation of Tcl script /home/mich/intelFPGA_lite/21.1/quartus/common/tcl/internal/ip_regen/ip_regen.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 612 megabytes
+    Info: Processing ended: Wed Feb 11 14:37:21 2026
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:16
+
+
