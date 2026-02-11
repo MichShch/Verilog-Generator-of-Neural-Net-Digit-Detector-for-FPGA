@@ -19,8 +19,8 @@ input [SIZE_address_pix_t-1:0] write_addresstp, read_addresstp;
 input [SIZE_address_wei-1:0] write_addressw, read_addressw;
 input we_p,we_tp,we_w,re_p,re_tp,re_w,clk;
 
-reg signed [SIZE_1-1:0] mem [0:picture_size*picture_size*8+picture_size*picture_size-1];
-reg signed [(SIZE_2)*1-1:0] mem_t [0:picture_size*picture_size*4-1];
+reg signed [SIZE_1-1:0] mem [0:6272-1];
+reg signed [(SIZE_2)*1-1:0] mem_t [0:3136-1];
 reg signed [SIZE_9-1:0] weight [0:256];
 always @ (posedge clk)
     begin

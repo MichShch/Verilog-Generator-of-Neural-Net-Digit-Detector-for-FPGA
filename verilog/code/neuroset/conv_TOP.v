@@ -22,7 +22,7 @@ input [SIZE_address_pix-1:0] memstartp;
 input [SIZE_address_wei-1:0] memstartw;
 input [SIZE_address_pix-1:0] memstartzap;                  																	
 input [4:0] lvl;
-input [1:0] slvl;
+input [2:0] slvl;
 output reg [SIZE_address_pix-1:0] read_addressp;
 output reg [SIZE_address_pix_t-1:0] read_addresstp;
 output reg [SIZE_address_wei-1:0] read_addressw;
@@ -133,7 +133,7 @@ if (conv_en==1)        //enable convolution
 								if (i>=2) 
 								begin
 								we_t=1;
-								write_addresstp=i-2+matrix2*num+(slvl*((filt+1)*matrix2)>>(num_conv>>1));
+								write_addresstp=i-2+matrix2*num+(slvl*(4*matrix2)>>(num_conv>>1));
 								if (globmaxp_en)  write_addressp=memstartzap;
 								else	write_addressp=memstartzap+i-2;
 								res1=Y1; if (lvl!=0) res1=res1+res_old_1; 
@@ -158,7 +158,7 @@ if (conv_en==1)        //enable convolution
 					end
 				3: begin		
 								re_t=1;
-								read_addresstp=i-1+matrix2*num+slvl*(((filt+1)*matrix2>>(num_conv>>1)));
+								read_addresstp=i-1+matrix2*num+slvl*((4*matrix2>>(num_conv>>1)));
 								if (i>=matrix-1)
 								begin
 								buff0[2]=qp[SIZE_1-1:0];

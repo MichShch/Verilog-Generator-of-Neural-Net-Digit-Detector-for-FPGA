@@ -7,16 +7,16 @@ parameter picture_size = 0;
 parameter convolution_size = 0;
 
 parameter picture_storage_limit = picture_size*picture_size;
-parameter convweight = picture_storage_limit + (1*4 + 4*4 + 4*8 + 8*8) * convolution_size;  // all convolution weights [784:1828]
 
-parameter conv1 = picture_storage_limit + 1*4 * convolution_size;
-parameter conv2 = picture_storage_limit + (1*4 + 4*4) * convolution_size;
-parameter conv3 = picture_storage_limit + (1*4 + 4*4 + 4*8) * convolution_size;
-parameter conv4 = picture_storage_limit + (1*4 + 4*4 + 4*8 + 8*8) * convolution_size;
-parameter conv5 = picture_storage_limit + (1*4 + 4*4 + 4*8 + 8*8 + 8*16) * convolution_size;
-parameter conv6 = picture_storage_limit + (1*4 + 4*4 + 4*8 + 8*8 + 8*16 + 16*16) * convolution_size;
+parameter conv0 = picture_storage_limit + (4) * convolution_size;
+parameter conv1 = picture_storage_limit + (4+16) * convolution_size;
+parameter conv2 = picture_storage_limit + (4+16+32) * convolution_size;
+parameter conv3 = picture_storage_limit + (4+16+32+64) * convolution_size;
+parameter conv4 = picture_storage_limit + (4+16+32+64+128) * convolution_size;
+parameter conv5 = picture_storage_limit + (4+16+32+64+128+256) * convolution_size;
 
-parameter dense = conv6+176;
+parameter dense0 =  conv5 + 176;
+
 
 always @(step)
 case (step)
@@ -25,39 +25,39 @@ case (step)
 		lastaddr = picture_storage_limit;
 		re_RAM = 1;
 	  end 
-2'd2: begin       //weights conv1 
+2: begin       //weights conv0 
 		firstaddr = picture_storage_limit;
+		lastaddr = conv0;
+		re_RAM = 1;
+	  end
+4: begin       //weights conv1 
+		firstaddr = conv0;
 		lastaddr = conv1;
 		re_RAM = 1;
 	  end
-3'd4: begin			//weights conv2
+6: begin       //weights conv2 
 		firstaddr = conv1;
-      lastaddr = conv2;
+		lastaddr = conv2;
 		re_RAM = 1;
-      end		
-3'd6: begin			//weights conv3
+	  end
+8: begin       //weights conv3 
 		firstaddr = conv2;
 		lastaddr = conv3;
 		re_RAM = 1;
 	  end
-4'd8: begin			//weights conv4
+10: begin       //weights conv4 
 		firstaddr = conv3;
 		lastaddr = conv4;
 		re_RAM = 1;
-		end
-4'd10: begin		//weights conv5
+	  end
+12: begin       //weights conv5 
 		firstaddr = conv4;
 		lastaddr = conv5;
 		re_RAM = 1;
 	  end
-4'd12: begin		//weights conv6
+14: begin       //weights dense0 
 		firstaddr = conv5;
-		lastaddr = conv6;
-		re_RAM = 1;
-	  end
-4'd14: begin		//weights conv7
-		firstaddr = conv6;
-		lastaddr =  dense;
+		lastaddr = dense0;
 		re_RAM = 1;
 	  end
 default:

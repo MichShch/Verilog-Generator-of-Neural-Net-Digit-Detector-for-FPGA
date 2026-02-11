@@ -1,0 +1,7 @@
+#!/bin/bash
+
+python3 r01_train_neural_net_and_prepare_initial_weights.py
+python3 r02_rescale_weights_to_use_fixed_point_representation.py
+python3 r03_find_optimal_bit_for_weights.py
+python3 r04_verilog_generator_grayscale_file.py
+python3 r05_verilog_generator_neural_net_structure.py
