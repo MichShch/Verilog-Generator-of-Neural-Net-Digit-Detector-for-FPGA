@@ -29,8 +29,7 @@ def show_resized_image(P, w=1000, h=1000):
 
 def load_mnist_data(type='channel_last'):
     from keras.datasets import mnist
-    from keras.utils import np_utils
-
+    from keras.utils import to_categorical
     # input image dimensions
     nb_classes = 10
     img_rows, img_cols = 28, 28
@@ -51,8 +50,8 @@ def load_mnist_data(type='channel_last'):
     print(X_test.shape[0], 'test samples')
 
     # convert class vectors to binary class matrices
-    Y_train = np_utils.to_categorical(y_train, nb_classes)
-    Y_test = np_utils.to_categorical(y_test, nb_classes)
+    Y_train = to_categorical(y_train, nb_classes)
+    Y_test = to_categorical(y_test, nb_classes)
 
     return X_train, Y_train, X_test, Y_test
 
